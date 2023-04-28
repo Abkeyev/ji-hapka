@@ -63,14 +63,14 @@ const Main = (props: any) => {
           </div>
         </section>
 
-        <section className="sale-hit pb-64">
+        <section className="sale-hit pb-32">
           <div className="container">
             <div className="row">
               <div
                 onClick={() => store.saveBasketInCookie()}
                 className="col-md-12"
               >
-                <Title24 title="Хиты продаж" className="mb-32" />
+                <Title24 title="Хиты продаж" className="mb-20" />
                 <div className="grid-max">
                   {bestsellers.map((b: any, index: any) => {
                     return (

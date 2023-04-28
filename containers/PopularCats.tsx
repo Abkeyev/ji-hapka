@@ -29,7 +29,7 @@ const PopularCats = (props: any) => {
     <section className="popular-cats pb-64">
       <div className="container">
         <div className="row">
-          <div className="col-md-12 mb-32">
+          <div className="col-md-12 mb-16">
             <Title24 title="Популярные категории" className="" />
           </div>
 

@@ -50,6 +50,23 @@ const ShowImage = (props: any) => {
     }
   };
 
+  const getFileLink = (): string => {
+    if (isDesktop) {
+      setIsQr(true);
+      return "#";
+    }
+    if (!isAndroid)
+      return (
+        API_STORAGE +
+        props.objUrl[0]?.download_link +
+        "#canonicalWebPageURL=https://jihazapp.kz/"
+      );
+
+    return `intent://arvr.google.com/scene-viewer/1.0?file=${
+      API_STORAGE + props.gltfUrl[0]?.download_link
+    }#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;`;
+  };
+
   const openFile = async (e: any) => {
     e.preventDefault();
     ReactGA.event({
@@ -60,15 +77,6 @@ const ShowImage = (props: any) => {
     if (isDesktop) {
       setIsQr(true);
     } else {
-      if (!isAndroid) {
-        router.push(API_STORAGE + props.objUrl[0]?.download_link);
-      } else {
-        router.push(
-          `intent://arvr.google.com/scene-viewer/1.0?file=${
-            API_STORAGE + props.gltfUrl[0]?.download_link
-          }#Intent;scheme=https;package=com.google.android.googlequicksearchbox;action=android.intent.action.VIEW;S.browser_fallback_url=https://developers.google.com/ar;end;`
-        );
-      }
       if (downloading == null) {
         download(props.objUrl, (progressEvent: any) => {
           setPercentage(
@@ -103,8 +111,9 @@ const ShowImage = (props: any) => {
             <a
               id="clickMeAgain"
               rel="ar"
-              href="#"
-              onClick={openFile}
+              // href={API_STORAGE + props.objUrl[0]?.download_link}
+              href={getFileLink()}
+              // onClick={openFile}
               className="btn btn-white btn-44"
             >
               <img />

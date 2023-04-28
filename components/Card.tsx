@@ -47,13 +47,11 @@ const Card = (props: any) => {
 
   return (
     <div className="card">
-      <div className="image-card">
-        <span onClick={onClickItem}>
-          <div
-            className="img"
-            style={{ backgroundImage: `${backgroundImage}` }}
-          ></div>
-        </span>
+      <div
+        className="image-card"
+        onClick={onClickItem}
+        style={{ backgroundImage: `${backgroundImage}` }}
+      >
         <div
           onClick={() => {
             ReactGA.event({

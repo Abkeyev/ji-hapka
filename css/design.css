@@ -1022,7 +1022,8 @@ p {
 }
 .h2-title {
     font-weight: 700;
-    font-size: 24px;
+    font-size: 20px;
+    line-height: 120%;
     letter-spacing: -0.025em;
     color: var(--primary-text-color);
 }
@@ -1265,11 +1266,10 @@ p {
     border-radius: 12px;
     overflow: hidden;
     transition: .3s;
-}
-.image-card::before {
-    content: "";
-    display: block;
-    padding-top: 70%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding-top: 100%;
 }
 .image-card .img {
     background-position: center center;
@@ -1298,7 +1298,7 @@ p {
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.5);
     color: var(--primary-text-color);
     transition: .3s;
 }
@@ -1635,7 +1635,7 @@ p {
     overflow: hidden;
 }
 .bannerMob {
-  display: 'none';
+  display: none;
 }
 .banner .banner-text {
   padding: 100px 85px;
@@ -2248,6 +2248,9 @@ p {
     }
     .mb-24 {
     margin-bottom: 24px;
+    }
+    .mb-20 {
+    margin-bottom: 20px;
     }
     .mb-32 {
     margin-bottom: 32px;
