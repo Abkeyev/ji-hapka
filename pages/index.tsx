@@ -73,6 +73,7 @@ const Main = (props: any) => {
                 <Title24 title="Хиты продаж" className="mb-20" />
                 <div className="grid-max">
                   {bestsellers.map((b: any, index: any) => {
+                    console.log(b, "bb");
                     return (
                       <div className="card-span" key={index}>
                         <Card
@@ -83,7 +84,9 @@ const Main = (props: any) => {
                           key={index}
                           object3d={b.object_3d}
                           gltf={b.object_gltf}
-                          backgroundImage={`url('${API_STORAGE}${b.image[0]}')`}
+                          backgroundImage={
+                            b.image && `url('${API_STORAGE}${b.image[0]}')`
+                          }
                           price={b.price * 0.95}
                           priceSale={b.price}
                           href={`/catalog/product/${b.id}`}
