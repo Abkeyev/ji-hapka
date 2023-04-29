@@ -83,7 +83,9 @@ const Main = (props: any) => {
                           key={index}
                           object3d={b.object_3d}
                           gltf={b.object_gltf}
-                          backgroundImage={`url('${API_STORAGE}${b.image[0]}')`}
+                          backgroundImage={
+                            b.image && `url('${API_STORAGE}${b.image[0]}')`
+                          }
                           price={b.price * 0.95}
                           priceSale={b.price}
                           href={`/catalog/product/${b.id}`}
